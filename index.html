@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUANTUM BUG Ω - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Halaman Login -->
+  <div id="loginPage" class="container">
+    <h1>QUANTUM_BUG_Ω 🔥</h1>
+    <p>Login Admin Dulu Bro</p>
+
+    <input type="text" id="username" placeholder="Username (admin)" />
+    <input type="password" id="password" placeholder="Password" />
+
+    <button onclick="login()">LOGIN</button>
+
+    <div id="loginStatus" style="margin-top: 20px; color: #ff0;"></div>
+  </div>
+
+  <!-- Halaman Utama (setelah login) -->
+  <div id="mainPage" class="container" style="display: none;">
+    <h1>QUANTUM_BUG_Ω 🔥</h1>
+    <p>Selamat datang, Admin!</p>
+
+    <button onclick="generateApiKey()">Generate API Key Baru</button>
+    <div id="apiKeyDisplay" style="margin: 20px 0; padding: 15px; background: #222; border: 1px solid #0f0; border-radius: 10px; word-break: break-all;">
+      API Key lu akan muncul di sini setelah generate
+    </div>
+
+    <input type="text" id="target" placeholder="Nomor target (628xxxxxxxxxx)" />
+    <input type="text" id="apikey" placeholder="Masukin API Key lu" />
+
+    <button onclick="kirim('android')">Kirim Android Crash</button>
+    <button onclick="kirim('ios')">Kirim iOS Kill</button>
+    <button onclick="kirim('delay')">Kirim Invisible Delay</button>
+    <button onclick="kirim('vcard')">Kirim VCard Crash</button>
+
+    <div id="status">Status: Siap kirim bro 🔥</div>
+
+    <button onclick="logout()" style="background: #f00; margin-top: 30px;">LOGOUT</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
