@@ -2,48 +2,94 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QUANTUM BUG Ω - Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>QUANTUM BUG Ω</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Halaman Login -->
-  <div id="loginPage" class="container">
-    <h1>QUANTUM_BUG_Ω 🔥</h1>
-    <p>Login Admin Dulu Bro</p>
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-grid-with-neon-lines-327-large.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    <input type="text" id="username" placeholder="Username (admin)" />
-    <input type="password" id="password" placeholder="Password" />
+  <div class="overlay"></div>
 
-    <button onclick="login()">LOGIN</button>
+  <!-- Login -->
+  <div id="loginPage" class="page active">
+    <div class="card glass">
+      <h1>QUANTUM_BUG_Ω</h1>
+      <p class="subtitle">Elite Quantum Access</p>
 
-    <div id="loginStatus" style="margin-top: 20px; color: #ff0;"></div>
+      <input type="text" id="username" placeholder="IDENTIFIER" autocomplete="off" />
+      <input type="password" id="password" placeholder="AUTH CODE" autocomplete="off" />
+
+      <button onclick="login()" class="btn-primary">INITIATE ACCESS</button>
+      <div id="loginStatus" class="status-msg"></div>
+    </div>
   </div>
 
-  <!-- Halaman Utama (setelah login) -->
-  <div id="mainPage" class="container" style="display: none;">
-    <h1>QUANTUM_BUG_Ω 🔥</h1>
-    <p>Selamat datang, Admin!</p>
+  <!-- Admin -->
+  <div id="adminPage" class="page">
+    <div class="card glass">
+      <h1>ADMIN NEXUS</h1>
+      <p class="welcome">Root Privileges Activated</p>
 
-    <button onclick="generateApiKey()">Generate API Key Baru</button>
-    <div id="apiKeyDisplay" style="margin: 20px 0; padding: 15px; background: #222; border: 1px solid #0f0; border-radius: 10px; word-break: break-all;">
-      API Key lu akan muncul di sini setelah generate
+      <div class="section">
+        <h3>Provision New Node</h3>
+        <input type="text" id="newUsername" placeholder="New Node ID" />
+        <input type="password" id="newPassword" placeholder="Node Auth Key" />
+        <button onclick="createAccount()" class="btn-primary">PROVISION NODE</button>
+        <div id="createStatus" class="status-msg"></div>
+      </div>
+
+      <div class="section">
+        <h3>Quantum Token Forge</h3>
+        <button onclick="generateApiKey()" class="btn-generate">FORGE NEW TOKEN</button>
+        <div id="apiKeyDisplay" class="apikey-box">Forge a token to begin</div>
+        <button id="copyBtn" onclick="copyApiKey()" class="btn-copy" style="display:none;">COPY TOKEN</button>
+      </div>
+
+      <div class="section">
+        <h3>Payload Deployment</h3>
+        <input type="text" id="target" placeholder="Target Node (628...)" />
+        <input type="text" id="apikey" placeholder="Quantum Token" />
+        <div class="button-grid">
+          <button onclick="kirim('android')" class="btn-danger">ANDROID OVERLOAD</button>
+          <button onclick="kirim('ios')" class="btn-danger">iOS TERMINATE</button>
+          <button onclick="kirim('delay')" class="btn-danger">DELAY PHANTOM</button>
+          <button onclick="kirim('vcard')" class="btn-danger">VCARD CORRUPTION</button>
+        </div>
+        <div id="status" class="status-box">NEXUS READY</div>
+      </div>
+
+      <button onclick="logout()" class="btn-logout">TERMINATE SESSION</button>
     </div>
+  </div>
 
-    <input type="text" id="target" placeholder="Nomor target (628xxxxxxxxxx)" />
-    <input type="text" id="apikey" placeholder="Masukin API Key lu" />
+  <!-- User -->
+  <div id="userPage" class="page">
+    <div class="card glass">
+      <h1>USER NEXUS</h1>
+      <p class="welcome">Connection Established</p>
 
-    <button onclick="kirim('android')">Kirim Android Crash</button>
-    <button onclick="kirim('ios')">Kirim iOS Kill</button>
-    <button onclick="kirim('delay')">Kirim Invisible Delay</button>
-    <button onclick="kirim('vcard')">Kirim VCard Crash</button>
+      <input type="text" id="targetUser" placeholder="Target Node (628...)" />
+      <input type="text" id="apikeyUser" placeholder="Quantum Token" />
 
-    <div id="status">Status: Siap kirim bro 🔥</div>
+      <div class="button-grid">
+        <button onclick="kirimUser('android')" class="btn-danger">ANDROID OVERLOAD</button>
+        <button onclick="kirimUser('ios')" class="btn-danger">iOS TERMINATE</button>
+        <button onclick="kirimUser('delay')" class="btn-danger">DELAY PHANTOM</button>
+        <button onclick="kirimUser('vcard')" class="btn-danger">VCARD CORRUPTION</button>
+      </div>
 
-    <button onclick="logout()" style="background: #f00; margin-top: 30px;">LOGOUT</button>
+      <div id="statusUser" class="status-box">NEXUS READY</div>
+
+      <button onclick="logout()" class="btn-logout">TERMINATE SESSION</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
+        </html>
