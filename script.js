@@ -1,4 +1,4 @@
-const API_URL = "https://w.mbbstore.my.id/server/675832df";  
+const API_URL = "https://w.mbbstore.my.id/";  
 // GANTI SAMA URL PANEL LU + PORT !!!
 
 const ADMIN_CREDENTIALS = {
